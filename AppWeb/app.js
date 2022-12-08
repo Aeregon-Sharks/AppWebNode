@@ -41,3 +41,29 @@ app.get("/home/suma", (req, res) => {
 app.get("/redirect", (req, res) => {
     res.redirect("/home")
 })
+
+// Los objetos y las clases no son lo mismo en javascript, un objeto en javascript es un objeto JSON. Creemos un objeto JSON.
+// La principal diferencia es que los objetos JSON no pueden implementar funcionalidades, solo son informacion con propiedades.
+const usuario = {
+    name:  "Juan",
+    email: "jc12345back@gmail.com",
+    age:    25,
+    grades: [ 3.3, 3.3, 3.5, 4.5, 5 ],
+    pet: {
+        name: "pirulo",
+        type: "cat",
+        age:   2
+    }
+}
+// Ahora creemos un get que me regrese un JSON. con el metodo .json en el objeto res.
+app.get("/GET/User/Juan",(req, res) => {
+    res.json(usuario)
+})
+// Si quiero ver solo un atributo puedo referenciarlo con un punto.
+app.get("/GET/User/Juan/grades",(req, res) => {
+    res.json(usuario.grades)
+})
+// Si el objeto que devolvemos es tambien un JSON podemos tambien ver unicamente algun atributo de dicho JSON con puntos adicionales.
+app.get("/GET/User/Juan/petname",(req, res) => {
+    res.json(usuario.pet.name)
+})
