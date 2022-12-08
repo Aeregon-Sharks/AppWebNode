@@ -7,7 +7,9 @@ function callback(){
     console.log("Server On");
 }
 
-app.listen(port, callback)
+app.listen(port, () => {
+    console.log("Server On");
+})
 
 app.get("/", (req, res) => {
     res.send("Hola")
