@@ -8,7 +8,7 @@ const port = 3000;
 //}
 // Ya no necesitamos la funcion callback ya que usamos una flecha para hacer una funcion rapidamente que no reside en el codigo // ( //parameters ) => { //code }
 function suma(a, b, callback){
-    callback();
+    callback(a, b);
     return a + b;
 }
 
@@ -30,7 +30,7 @@ app.get("/home/login", (req, res) => {
 
 app.get("/home/suma", (req, res) => {
     res.send("sumanding")
-    console.log(suma(10, 20, ()=>{
-        console.log("Sumanding",10,"+",20,"...")
+    console.log(suma(30, 20, (a, b)=>{
+        console.log("Sumanding",a,"+",b,"...");
     }));
 } )
