@@ -2,6 +2,8 @@ import express from "express";
 
 const UserRouter = express.Router()
 
+//localhost:3000/user
+
 const usuario = {
     name:  "Juan",
     email: "jc12345back@gmail.com",
@@ -23,8 +25,14 @@ UserRouter.get("/grades",(req, res) => {
     res.json(usuario.grades)
 })
 // Si el objeto que devolvemos es tambien un JSON podemos tambien ver unicamente algun atributo de dicho JSON con puntos adicionales.
-UserRouter.get("/petname",(req, res) => {
+UserRouter.get("/pet/name",(req, res) => {
     res.json(usuario.pet.name)
 })
+// o el objeto JSON completo.
+UserRouter.get("/pet",(req, res) => {
+    res.json(usuario.pet)
+})
+
+
 
 export default UserRouter
