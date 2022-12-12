@@ -22,7 +22,7 @@ function suma(a, b, callback){
 app.get("/suma", (req, res) => {
     res.send("sumanding")
     console.log(suma(30, 20, (a, b)=>{
-        console.log("Sumanding",a,"+",b,"...");
+        console.log("Sumanding "+a+" + "+b+" ...");
    }));
 })
 
@@ -80,5 +80,7 @@ app.get("/redirect", (req, res) => {
 //})
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 // AHORA en lugar de usar estas direcciones usamos .use en nuestro app
+
+app.use(express.json())
 app.use("/user", UserRouter)
 app.use("/home", HomeRouter)
